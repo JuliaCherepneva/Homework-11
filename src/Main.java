@@ -8,10 +8,10 @@ public class Main {
         checkYear(2024);
 
         System.out.println("\nЗадача 2");
-        printDeviceVersion(1, 2026);
+        printDeviceVersion(1, 2014);
 
         System.out.println("\nЗадача 3");
-        int days = calculateDistance(67);
+        int days = calculateDistance(70);
         if (days == -1) {
             System.out.println("Доставки нет");
         } else {
@@ -27,9 +27,8 @@ public class Main {
     }
 }
     public static void printDeviceVersion (int osType, int year) {
-        int currentYear = LocalDate.now().getYear();
         var type = osType == 1 ? "Android" : "iOS";
-        var appType = year != currentYear  ? "облегченную " : "";
+        var appType = year < 2015  ? "облегченную " : "";
         System.out.println("Установите " + appType + "версию для системы " + type);
     }
 
@@ -39,13 +38,12 @@ public class Main {
             }
             int days = 1;
             if (distance <= 20) {
-                days++;
             }
             if (distance > 20 && distance < 60) {
                 days++;
             }
             if (distance >= 60 && distance < 100) {
-                days ++;
+                days += 2;
             }
             return days;
         }
