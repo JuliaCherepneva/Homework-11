@@ -33,17 +33,16 @@ public class Main {
     }
 
         public static int calculateDistance (int distance) {
-            if (distance > 100) {
-                return -1;
-            }
+
             int days = 1;
             if (distance <= 20) {
-            }
-            if (distance > 20 && distance < 60) {
+                days = 1;
+            } else if (distance > 20 && distance < 60) {
                 days++;
-            }
-            if (distance >= 60 && distance < 100) {
-                days += 2;
+            } else if (distance >= 60 && distance < 100) {
+                days = days + 2;
+            } else {
+                return -1;
             }
             return days;
         }
